@@ -1,0 +1,102 @@
+<div class="wrapper">
+  <div class="page-header clear-filter" filter-color="orange">
+    <div class="page-header-image rellax-header" data-rellax-speed="-7" style="background-image: url('assets/img/header.jpg');">
+
+    </div>
+      <div class="container">
+          <div class="content-center brand">
+              <img class="n-logo" src="assets/img/now-logo.png" alt="">
+              <h1 class="h1-seo">Test Angular</h1>
+              <h3> Edit by Joshua Guerra. Yours free.</h3>
+          </div>
+          <h6 class="category category-absolute">Designed by
+              <a href="https://invisionapp.com/" target="_blank">
+                  <img src="assets/img/invision-white-slim.png" class="invision-logo" />
+              </a>. Coded by
+              <a href="https://www.creative-tim.com" target="_blank">
+                  <img src="assets/img/creative-tim-white-slim2.png" class="creative-tim-logo" />
+              </a>.</h6>
+      </div>
+  </div>
+
+  <div class="main">
+    <div class="section section-images">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="exampleFormControlSelect1">Tipo de tabla</label>
+                                    <select class="form-control"  [(ngModel)]="opcion" id="exampleFormControlSelect1">
+                                        <option  *ngFor="let opc of opciones">{{opc}}</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row" *ngIf = "opcion === 'Productos'">
+                            <ngx-datatable
+                            class="material col-md-6 offset-md-2"
+                            [rows]="rows1"
+                            [selected]="selected"
+                            (activate)="onActivate($event)"
+                            (select)="onSelect($event)"
+                            [columns]="columnsProductos"
+                            headerHeight="50"
+                            footerHeight="50"
+                            rowHeight="auto"
+                            [limit]="3">
+                            </ngx-datatable>
+                        <div class="row " *ngIf = "opcion === 'Proveedores'">
+                            <ngx-datatable
+                            class="material col-md-6 offset-md-2 "
+                            [rows]="rows2"
+                            
+                            [columns]="columnsProveedores"
+                            headerHeight="50"
+                            footerHeight="50"
+                            rowHeight="auto"
+                            
+                            [limit]="3">
+                            </ngx-datatable>
+                        </div>
+                        <div class="row" *ngIf = "opcion === 'Tiendas'">
+                            <ngx-datatable
+                            class="material col-md-6 offset-md-2"
+                            [rows]="rows3"
+                            
+                            [columns]="columnsTiendas"
+                            headerHeight="50"
+                            footerHeight="50"
+                            rowHeight="auto"
+                            
+                            [limit]="3">
+                            </ngx-datatable>
+                        </div>
+                        <div class="row" *ngIf = "opcion === 'Inventariado'">
+                            <ngx-datatable
+                            class="material col-md-6 offset-md-2"
+                            [rows]="rows4"
+                            
+                            [columns]="columnsInventariado"
+                            headerHeight="50"
+                            footerHeight="50"
+                            rowHeight="auto"
+                            
+                            [limit]="3">
+                            </ngx-datatable>
+                        </div>                        
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+  <footer class="footer" data-background-color="black">
+      <div class="container">
+          <div class="copyright"> Coded by
+              <a href="https://www.creative-tim.com" target="_blank">Joshua Guerra</a>.
+          </div>
+      </div>
+  </footer>
+</div>
